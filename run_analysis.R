@@ -87,3 +87,5 @@ selected_set <- select(full_set, "activity" | contains("-mean(") | contains("-st
 summarized_mean_set <- selected_set %>% 
   group_by(activity) %>% 
   summarise_all("mean")
+
+summarized_mean_set
