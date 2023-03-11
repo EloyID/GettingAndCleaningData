@@ -28,8 +28,7 @@ features <- read.fwf(
   widths=1000
 )
 
-features_new <- separate(features, V1, into= c("index", "feature"), sep=" ")
-features_list <- features_new$feature
+features_list <- separate(features, V1, into= c("index", "feature"), sep=" ")$feature
 
 # Load test data
 
@@ -80,7 +79,7 @@ names(full_set) <- c(activity_column_name,features_list)
 ## 2. Extracts only the measurements on the mean and standard deviation for each 
 ## measurement. 
 
-selected_set <- select(full_set, "activity" | contains("-mean") | contains("-std"))
+selected_set <- select(full_set, "activity" | contains("-mean(") | contains("-std("))
 
 ## 5. From the data set in step 4, creates a second, independent tidy data set 
 ## with the average of each variable for each activity and each subject.
